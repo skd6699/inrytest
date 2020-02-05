@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>Transport</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <%    if(!currentUser){ %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                     <%    } else { %>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    
+                    <%    }  %>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <h1>College Transport System</h1>
+        <table class="table">
+            <h4>20/km</h4>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Start</th>
+                    <th scope="col">Distance</th>
+                    <th scope="col">Cost Monthly</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Secunderabad</td>
+                    <td>20</td>
+                    <td>24000</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jubilee Hills</td>
+                    <td>15</td>
+                    <td>18000</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Gachibowli</td>
+                    <td>14</td>
+                    <td>16800</td>
+                </tr>
+            </tbody>
+        </table>
+        <form action="/choose" method="POST">
+            <h3>Choose Bus Stop</h3>
+            <select name="busstop">
+                <option value="sec">Secunderabad</option>
+                <option value="jub">Jubilee Hills</option>
+                <option value="ban">Banjara Hills</option>
+                <option value="gach">Gachibowli</option>
+            </select>
+            <button type="submit" class="btn-success ">Submit</button>
+        </form>
+        <% if(currentUser){%>
+        <% if(currentUser.type == 'Admin'){ %>
+                    <a href="/fdreport" class="btn btn-lg btn-success">Send Financial Report</a>
+
+        <%}} %>
+    </div>
+    </body>
+</html> 
